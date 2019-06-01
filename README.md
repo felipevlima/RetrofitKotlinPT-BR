@@ -38,4 +38,18 @@ Use anotações para descrever requisições http:
 
 Anotações nos métodos de interface e seus parâmetros indicam como uma solicitação será tratada.
 
-#Continua...
+### Metodos Request
+
+Todo método deve ter uma anotação HTTP que forneça o método de solicitação e a URL relativa. Existem cinco anotações integradas: ```GET```,```POST```,```PUT```,```DELETE``` e ```HEAD```. O URL relativo do recurso é especificado na anotação.
+
+```kotlin
+@GET("users/list")
+```
+
+Você pode passar parâmetros query da URL:
+
+```kotlin
+@GET("users/list?sort=desc")
+```
+
+..<CONTINUA>..
