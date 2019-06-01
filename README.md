@@ -1,5 +1,7 @@
 # Rest Retrofit API com Kotlin
 
+## Introdução
+
 Retrofit torna sua API HTTP em uma interface Java:
 
 ```kotlin
