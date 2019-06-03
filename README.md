@@ -78,7 +78,7 @@ Call<List<User>> groupList(@Path("id") int groupId, @QueryMap Map<String, String
 
 Um objeto especifico pode ser usado para uma requisição do corpo HTTP com a anotação @Body:
 
-```kotlin‌
+```kotlin
 @POST("users/new")
 Call<User> createUser(@Body User user);
 ```
