@@ -82,4 +82,16 @@ Um objeto especifico pode ser usado para uma requisição do corpo HTTP com a an
 @POST("users/new")
 Call<User> createUser(@Body User user);
 ```
+
+### Formulário codificado e Multipart
+
+Os métodos também podem ser declarados para enviar dados codificados e multipartes.
+
+Dados codificados por formulário são enviados quando ```@FormUrlEncoded``` está presente no método. Cada par de valores-chave é anotado com ```@Field``` contendo o nome e o objeto fornecendo o valor.
+
+```kotlin
+@FormUrlEncoded
+@POST("user/edit")
+Call<User> updateUser(@Field("first_name") String first, @Field("last_name") String last);
+```
 ..<CONTINUA>..
