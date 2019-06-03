@@ -51,5 +51,35 @@ Você pode passar parâmetros query da URL:
 ```kotlin
 @GET("users/list?sort=desc")
 ```
+### Manipulação de URL
 
+A requisição URL pode ser atualizada dinamicamente usando blocos de reposição e métodos de parâmetros. O bloco de reposição é uma string alfanumérica definida por { e }. O parâmetro correspondente deve ser anotado com ```@Path``` usando a mesma string.
+
+```kotlin
+@GET("group/{id}/users")
+Call<List<User>> groupList(@Path("id") int groupId);
+```
+
+Parâmetros Query podem ser adicionados:
+
+```kotlin
+@GET("group/{id}/users")
+Call<List<User>> groupList(@Path("id") int groupId, @Query("sort") String sort);
+```
+
+Para combinações complexas de parâmetros Query, se usa ```Map```:
+
+```kotlin
+@GET("group/{id}/users")
+Call<List<User>> groupList(@Path("id") int groupId, @QueryMap Map<String, String> options);
+```
+
+### Requisição de corpo
+
+Um objeto especifico pode ser usado para uma requisição do corpo HTTP com a anotação @Body:
+
+```kotlin‌
+@POST("users/new")
+Call<User> createUser(@Body User user);
+```
 ..<CONTINUA>..
