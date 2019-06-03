@@ -94,4 +94,34 @@ Dados codificados por formulário são enviados quando ```@FormUrlEncoded``` est
 @POST("user/edit")
 Call<User> updateUser(@Field("first_name") String first, @Field("last_name") String last);
 ```
+
+Solicitações multipartes são usadas quando ```@Multipart``` está presente no método. Partes são declaradas usando a anotação ```@Part```:
+
+```kotlin
+@Multipart
+@PUT("user/photo")
+Call<User> updateUser(@Part("photo") RequestBody photo, @Part("description") RequestBody description);
+```
+
+Peças de várias partes usam um dos conversores do Retrofit ou podem implementar o ```RequestBody``` para lidar com sua própria serialização.
+
+### Manipulação de Header
+
+Você pode definir cabeçalhos estáticos para um método usando a anotação ```@Headers```:
+
+```kotlin
+@Headers("Cache-Control: max-age=640000")
+@GET("widget/list")
+Call<List<Widget>> widgetList();
+```
+
+```kotlin
+@Headers({
+    "Accept: application/vnd.github.v3.full+json",
+    "User-Agent: Retrofit-Sample-App"
+})
+@GET("users/{username}")
+Call<User> getUser(@Path("username") String username);
+```
+
 ..<CONTINUA>..
